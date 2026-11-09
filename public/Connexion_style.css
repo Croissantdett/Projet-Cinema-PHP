@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lilita One", cursive;
+    background-color: #0F172A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 350px;
+    align-items: center;
+    max-width: 1200px;
+}
+
+.logo-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-section {
+    flex: 1;
+}
+
+.form-card {
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 10px;
+    width: 574px;
+    height: 570px;
+}
+
+h1 {
+    color: #1E293B;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 50px;
+    width: 444px;
+    height: 70px;
+}
+
+label {
+    display: block;
+    color: #5a6c7d;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 24px;
+    transition: border-color 0.3s;
+    background-color: white;
+}
+
+.submit-btn {
+    font-family: "Lilita One", cursive;
+    font-size: 40px;
+    width: 100%;
+    padding: 16px;
+    background-color: #991917;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #1E293B;
+    font-size: 24px;
+}
+
+.login-link a {
+    color: #991917;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .logo-placeholder {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* ===== Ajouts pour le récap séance à gauche (sans casser la page) ===== */
+
+.booking-section{
+    position: relative;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+    min-height: 570px;
+}
+
+.booking-card{
+    display: grid;
+    gap: 18px;
+    justify-items: start;
+    margin-top: auto;
+}
+
+.booking-poster{
+    width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(255,255,255,0.05);
+}
+
+.booking-poster img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.booking-info{
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.booking-info p{
+    margin: 4px 0;
+}
+
+.booking-badge{
+    display: inline-block;
+    margin-left: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background-color: rgba(255,255,255,0.12);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* Style du logo (comme dans le header) */
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 80px;
+    height: 71px;
+}
+
+/* Optionnel : si ton gap 350 est trop énorme, tu peux le réduire juste sur desktop */
+@media (min-width: 901px){
+    .container{ gap: 220px; }
+}
+
+/* Mobile : centre le bloc séance */
+@media (max-width: 900px) {
+    .booking-section{
+        align-items: center;
+        text-align: center;
+    }
+    .booking-card{
+        justify-items: center;
+    }
+}
+
+/* couleur et taille des message d'erreur lors de l'incription ou la connexion*/
+.input-error {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 1.2em;
+    margin-top: 5px;
+}

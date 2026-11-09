@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lilita One", cursive;
+    background-color: #0F172A;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #0F172A;
+    padding: 0 40px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-placeholder {
+    width: 70px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: #991917;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.icon-btn:hover {
+    color: #a63d3d;
+}
+
+.search-icon::before {
+}
+
+.user-icon::before {
+}
+
+/* Pop-up Mon compte */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.popup-overlay.active {
+    display: block;
+}
+
+.popup {
+    background-color: white;
+    border-radius: 15px;
+    padding: 50px 60px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    min-width: 400px;
+    position: absolute;
+    top: 90px;
+    right: 30px;
+}
+
+.popup h2 {
+    font-family: "Lilita One", cursive;
+    color: #1E293B;
+    font-size: 36px;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.popup-btn {
+    font-family: "Lilita One", cursive;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    margin-bottom: 20px;
+}
+
+.popup-btn:hover {
+    opacity: 0.9;
+}
+
+.btn-login {
+    background-color: #991917;
+    color: white;
+}
+
+.btn-signup {
+    background-color: #E5E7EB;
+    color: #1E293B;
+}
+.btn-logout {
+    background-color: #991917;
+    color: white;
+}
+/* ===== Menu "Gestion des films" ===== */
+
+.gestion-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Le lien parent garde le style de ton nav */
+.gestion-link {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.gestion-link:hover {
+    color: #991917;
+}
+
+/* Popup caché par défaut */
+.gestion-popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1100;
+
+    background-color: #0F172A;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    padding: 12px 0;
+    min-width: 260px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.gestion-dropdown:hover .gestion-popup,
+.gestion-dropdown:focus-within .gestion-popup {
+    display: block;
+}
+
+/* Liens du popup */
+.gestion-popup a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 18px;
+    transition: color 0.3s, background-color 0.3s;
+    white-space: nowrap;
+}
+
+.gestion-popup a:hover {
+    color: #991917;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* =============================================
+   LOUPE - RECHERCHE DROPDOWN
+   ============================================= */
+.search-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.search-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 320px;
+    background: #1a1a2e;
+    border: 1px solid #444;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.search-dropdown--open {
+    display: block;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #12122a;
+    border: none;
+    border-bottom: 1px solid #333;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.search-input::placeholder {
+    color: #888;
+}
+
+.search-results {
+    max-height: 360px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.15s;
+    border-bottom: 1px solid #2a2a3e;
+}
+
+.search-result-item:hover {
+    background: #2a2a4e;
+}
+
+.search-result-img {
+    width: 40px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.search-result-img--placeholder {
+    background: #333;
+}
+
+.search-result-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.search-result-name {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.search-result-type {
+    font-size: 11px;
+    color: #e6b31e;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: sans-serif;
+}
+
+.search-no-result {
+    padding: 16px;
+    color: #888;
+    font-size: 13px;
+    text-align: center;
+    font-family: sans-serif;
+}

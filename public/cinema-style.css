@@ -1,0 +1,423 @@
+/* cinema-style.css */
+/* Tout est scopé à .cinema-body pour ne rien casser ailleurs */
+
+/* ------------------------------------------------------------------
+   Petits ajustements génériques (logo dans le header si besoin)
+   ------------------------------------------------------------------ */
+.cinema-body .site-logo {
+    height: 46px;
+    width: auto;
+    display: block;
+}
+
+/* ------------------------------------------------------------------
+   Search + chips (barre + “boutons” de cinémas) — comme sur l’image
+   ------------------------------------------------------------------ */
+.cinema-body .search-section.cinema-search {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+
+    max-width: 1400px;
+    margin: 0 auto 26px;
+}
+
+.cinema-body .search-section.cinema-search .search-container {
+    flex: 1 1 560px;
+    max-width: 680px;
+}
+
+.cinema-body .search-section.cinema-search .search-container input {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.cinema-body .search-section.cinema-search .search-container input::placeholder {
+    color: #6b7a8f;
+}
+
+/* Chips */
+.cinema-body .cinema-chip {
+    flex: 0 0 auto;
+    background-color: #2a3544;
+    border-radius: 12px;
+    padding: 14px 18px;
+    text-decoration: none;
+    color: white;
+    display: grid;
+    gap: 2px;
+    min-width: 170px;
+    justify-items: center;
+}
+
+.cinema-body .cinema-chip:hover {
+    background-color: #3a4556;
+}
+
+.cinema-body .cinema-chip-city {
+    font-size: 12px;
+    opacity: 0.9;
+    font-family: Arial, sans-serif;
+}
+
+.cinema-body .cinema-chip-name {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------
+   Header cinéma (titre + ville + bouton)
+   ------------------------------------------------------------------ */
+.cinema-body .cinema-header {
+    max-width: 1400px;
+    margin: 0 auto 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.cinema-body .cinema-title {
+    color: white;
+    font-size: 64px;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.cinema-body .cinema-subtitle {
+    color: white;
+    opacity: 0.9;
+    font-size: 22px;
+    margin-top: 0;
+    font-family: Arial, sans-serif;
+}
+
+.cinema-body .info-btn {
+    background-color: #2a3544;
+    border: none;
+    color: white;
+    padding: 16px 22px;
+    border-radius: 12px;
+    font-size: 22px;
+    cursor: pointer;
+    font-family: "Lilita One", cursive;
+    white-space: nowrap;
+    margin-top: 10px;
+}
+
+.cinema-body .info-btn:hover {
+    background-color: #3a4556;
+}
+
+/* ------------------------------------------------------------------
+   Programme (liste des films)
+   ------------------------------------------------------------------ */
+.cinema-body .cinema-program {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+}
+
+/* ------------------------------------------------------------------
+   Ligne film : affiche à gauche, contenu à droite (titre puis horaires)
+   ------------------------------------------------------------------ */
+.cinema-body .showtime-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 20px 30px;
+    align-items: stretch;
+
+    padding-bottom: 34px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Affiche */
+.cinema-body .showtime-poster {
+    width: 180px;
+    aspect-ratio: 2/3;
+    background: #2a3544;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cinema-body .showtime-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Colonne de droite */
+.cinema-body .showtime-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+    justify-content: space-between;  /* Ajouter cette ligne */
+}
+
+.cinema-body .showtime-meta {
+    padding-top: 10px;
+}
+
+.cinema-body .showtime-title {
+    color: #991917;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.cinema-body .showtime-genre {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------
+   Horaires (cartes) — sous le titre
+   ------------------------------------------------------------------ */
+.cinema-body .showtime-times {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 0;
+}
+
+.cinema-body .time-card {
+    background-color: #2a3544;
+    padding: 16px 14px;
+    border-radius: 12px;
+    min-width: 150px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+.cinema-body .time-card:hover {
+    background-color: #3a4556;
+}
+
+.cinema-body .time-card-top {
+    position: relative;
+    min-height: 0;
+    margin: 0;
+}
+
+/* Badge technique (gauche) */
+.cinema-body .time-badge {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    opacity: 1;
+}
+
+/* Badge langue (droite) */
+.cinema-body .time-lang {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.cinema-body .time-hour {
+    font-size: 32px;
+    color: white;
+    margin-top: 20px; /* laisse la place aux badges */
+}
+
+.cinema-body .time-end {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #6b7a8f;
+    margin-top: 6px;
+}
+
+/* ------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------ */
+@media (max-width: 1100px) {
+    .cinema-body .cinema-title {
+        font-size: 46px;
+    }
+
+    .cinema-body .showtime-row {
+        grid-template-columns: 1fr;
+        padding-bottom: 26px;
+    }
+
+    .cinema-body .showtime-poster {
+        width: 140px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cinema-body .search-section.cinema-search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cinema-body .search-section.cinema-search .search-container {
+        max-width: none;
+    }
+
+    .cinema-body .cinema-chip {
+        width: 100%;
+        justify-items: start;
+        text-align: left;
+    }
+
+    .cinema-body .showtime-poster {
+        width: 110px;
+    }
+
+    .cinema-body .time-card {
+        min-width: 150px;
+    }
+}
+/* ===========================
+   POPUP INFOS CINÉMA
+   =========================== */
+
+.cinema-body .cinema-popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(15, 23, 42, 0.45); /* léger voile */
+}
+
+.cinema-body .cinema-popup-overlay.active {
+    display: block;
+}
+
+.cinema-body .cinema-popup {
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(520px, calc(100vw - 40px));
+    background: #0F172A;
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 14px;
+    padding: 28px 28px 26px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+.cinema-body .cinema-popup-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.85);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.cinema-body .cinema-popup-close:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+.cinema-body .cinema-popup-title {
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.cinema-body .cinema-popup-subtitle {
+    color: rgba(255,255,255,0.85);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 18px;
+}
+
+.cinema-body .cinema-popup-badges {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.cinema-body .cinema-popup-badge {
+    background: #2a3544;
+    border-radius: 12px;
+    padding: 12px 14px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.cinema-body .badge-number {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 2px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.cinema-body .badge-label {
+    color: rgba(255,255,255,0.9);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+}
+
+.cinema-body .cinema-popup-prices {
+    margin-top: 6px;
+}
+
+.cinema-body .cinema-popup-section-title {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.cinema-body .price-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 8px 0;
+}
+
+.cinema-body .price-label {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.cinema-body .price-value {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* mobile : popup un peu plus haut */
+@media (max-width: 600px) {
+    .cinema-body .cinema-popup {
+        top: 120px;
+    }
+}
+
